@@ -142,4 +142,7 @@
     .link-img {
         height: 300px;
     }
+    .cookie-alert {
+        right: 0 !important;
+    }
 }

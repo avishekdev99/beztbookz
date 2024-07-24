@@ -11,6 +11,35 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/media.css">
     <title>Home</title>
+    <style>
+      .cookie-alert {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 320px;
+  margin: 0 !important;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 500ms ease-out;
+}
+
+.cookie-alert.show {
+  opacity: 1;
+  transform: translateY(0%);
+  transition-delay: 1000ms;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #e4573d;
+    border-color: #e4573d;
+}
+.btn-primary:hover{
+  background-color: transparent;
+  color: #e4573d;
+  border-color: #e4573d;
+}
+    </style>
   </head>
   <body>
 
@@ -551,6 +580,18 @@
     <!-- footer section end -->
 
 
+    <div class="card cookie-alert">
+      <div class="card-body">
+        <h5 class="card-title">&#x1F36A; Do you like cookies?</h5>
+        <p class="card-text">We use cookies to improve your user experience on our site, analyze site traffic and
+          customize content. By continuing to use our site, you accept the use of cookies.</p>
+        <div class="btn-toolbar justify-content-end">
+          <!-- <a href="http://cookiesandyou.com/" target="_blank" class="btn btn-link">Learn more</a> -->
+          <a href="#" class="btn btn-primary accept-cookies">Accept</a>
+        </div>
+      </div>
+    </div>
+
   
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -595,6 +636,49 @@
     }
   ]
 });
+    </script>
+    <script>
+      (function () {
+    "use strict";
+
+    var cookieAlert = document.querySelector(".cookie-alert");
+    var acceptCookies = document.querySelector(".accept-cookies");
+
+    cookieAlert.offsetHeight; // Force browser to trigger reflow (https://stackoverflow.com/a/39451131)
+
+    if (!getCookie("acceptCookies")) {
+        cookieAlert.classList.add("show");
+    }
+
+    acceptCookies.addEventListener("click", function () {
+        setCookie("acceptCookies", true, 60);
+        cookieAlert.classList.remove("show");
+    });
+})();
+
+// Cookie functions stolen from w3schools
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
     </script>
 
   </body>
