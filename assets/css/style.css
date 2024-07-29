@@ -84,7 +84,7 @@ img {
 
 .main-nav ul li a {
     font-size: 1.25rem;
-    color: #8b8b8b;
+    color: #333;
     font-weight: 600;
     transition: all 0.3s linear;
 
@@ -115,6 +115,7 @@ nav {
     background: #fff;
 
 }
+
 .fixed-header {
     position: fixed;
     z-index: 99;
@@ -172,12 +173,19 @@ nav {
 
 .abt-img {
     height: 450px;
+    overflow: hidden;
+}
+
+.abt-img:hover img {
+    transform: scale(1.3);
 }
 
 .abt-img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: all 0.3s linear;
+
 }
 
 .about-sec .row {
@@ -322,7 +330,8 @@ a.buy-now:hover {
     letter-spacing: 1px;
     border: none;
     border-top-left-radius: 36px;
-    border-bottom-left-radius: 36px
+    border-bottom-left-radius: 36px;
+    border: 1px solid transparent;
 }
 
 .form-subscribe .form-control.focus,
@@ -337,6 +346,11 @@ a.buy-now:hover {
     background: #e4573d;
     border-color: #e4573d;
     height: 46.5px;
+}
+
+.form-subscribe .btn:hover {
+    background-color: #fff;
+    color: #e4573d;
 }
 
 .newsletter {
@@ -357,6 +371,7 @@ a.buy-now:hover {
 
 .form-control:focus {
     box-shadow: none;
+    border: 1px solid #e4573d;
 }
 
 .btn-check:focus+.btn-success,
@@ -469,6 +484,7 @@ div#accordionExample {
 
 .footer-links ul li {
     line-height: normal;
+    padding: 0 5px;
 }
 
 .footer-links ul li a {
@@ -569,11 +585,11 @@ div#accordionExample {
 }
 
 .biographies-img:hover img {
-    transform: scale(1.2) ;
-    -webkit-transform: scale(1.2) ;
-    -moz-transform: scale(1.2) ;
-    -ms-transform: scale(1.2) ;
-    -o-transform: scale(1.2) ;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 .biographies-img img {
@@ -690,7 +706,8 @@ div#accordionExample {
 .privacy-wrap ul li strong {
     color: #000;
 }
-.copy-text p{
+
+.copy-text p {
     margin-bottom: 0;
     font-size: 1rem;
     text-align: center;
